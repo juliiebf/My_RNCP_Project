@@ -239,7 +239,7 @@ export default function SeriesDetailPage() {
         {/* Review */}
         <div style={{ marginBottom: '40px', maxWidth: '672px', margin: '20px auto 40px auto' }}>
           <h2 className="text-xl font-bold text-yellow-400 uppercase tracking-widest" style={{ marginTop: '20px', marginBottom: '5px' }}>Ta review</h2>
-          <ReviewForm tmdbId={series.id} mediaType="tv" />
+          <ReviewForm tmdbId={series.id} mediaType="tv" title={series.name} />
         </div>
       </div>
 
