@@ -5,9 +5,10 @@ import { useState } from 'react';
 interface ReviewFormProps {
   tmdbId: number;
   mediaType: 'movie' | 'tv';
+  title?: string;
 }
 
-export default function ReviewForm({ tmdbId, mediaType }: ReviewFormProps) {
+export default function ReviewForm({ tmdbId, mediaType, title }: ReviewFormProps) {
   const [rating, setRating] = useState<number>(0);
   const [comment, setComment] = useState('');
   const [loading, setLoading] = useState(false);
@@ -51,9 +52,8 @@ export default function ReviewForm({ tmdbId, mediaType }: ReviewFormProps) {
   return (
     <div className="mt-8 p-6 mx-auto max-w-2xl bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-gray-900/50 dark:to-gray-800/50 rounded-2xl border border-yellow-200 dark:border-yellow-900/50">
       <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
-        👤 Ta review
+        Mon avis sur {title ?? (mediaType === 'movie' ? 'ce film' : 'cette série')}
       </h3>
-      
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-lg font-semibold mb-2 dark:text-gray-200">
